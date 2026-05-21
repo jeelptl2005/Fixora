@@ -909,7 +909,7 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 12px;
+    font-size: 10px;
     color: var(--text-muted);
     line-height: 1.4;
     cursor: pointer;
@@ -919,8 +919,8 @@ body {
 
 .terms-row input {
     accent-color: var(--orange);
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     flex-shrink: 0;
 }
 
