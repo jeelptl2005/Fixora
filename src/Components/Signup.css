@@ -907,19 +907,20 @@ body {
 .terms-row {
     margin-bottom: 18px;
     display: flex;
-    align-items: flex-start;
-    gap: 8px;
+    align-items: center;
+    gap: 6px;
     font-size: 12px;
     color: var(--text-muted);
-    line-height: 1.5;
+    line-height: 1.4;
     cursor: pointer;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .terms-row input {
     accent-color: var(--orange);
     width: 14px;
     height: 14px;
-    margin-top: 2px;
     flex-shrink: 0;
 }
 

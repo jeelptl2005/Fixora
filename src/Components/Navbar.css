@@ -361,6 +361,31 @@ nav {
 /* ════════════════════════════════
    MEDIA QUERIES
 ════════════════════════════════ */
+
+/* Tablet - sidebar as side panel */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .nav-links,
+    .btn-group {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .sidebar {
+        top: 70px;
+        height: calc(100vh - 70px);
+        height: calc(100dvh - 70px);
+        width: 320px;
+    }
+
+    .sidebar-close-btn {
+        display: flex;
+    }
+}
+
 @media (max-width: 1024px) {
     .nav-links {
         gap: 2px;

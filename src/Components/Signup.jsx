@@ -168,14 +168,76 @@ function ExpertiseSelector({ selected, onChange }) {
     );
 }
 
-/* ─── Password feedback ──────────────────────────────── */
+/* ─── Password strength ──────────────────────────────── */
+
+function getStrength(pass) {
+    if (!pass) return { score: 0, label: '', color: '' };
+    let score = 0;
+    if (pass.length >= 8) score++;
+    if (pass.length >= 12) score++;
+    if (/[A-Z]/.test(pass)) score++;
+    if (/[0-9]/.test(pass)) score++;
+    if (/[^A-Za-z0-9]/.test(pass)) score++;
+    if (score <= 1) return { score, label: 'Weak', color: '#dc2626' };
+    if (score <= 2) return { score, label: 'Fair', color: '#f59e0b' };
+    if (score <= 3) return { score, label: 'Good', color: '#3b82f6' };
+    if (score <= 4) return { score, label: 'Strong', color: '#10b981' };
+    return { score: 5, label: 'Very Strong', color: '#059669' };
+}
 
 function PassFeedback({ pass, confirm }) {
-    if (!confirm) return null;
+    const strength = getStrength(pass);
+    const showStrength = pass.length > 0;
+    const showMatch = confirm.length > 0;
     const match = pass === confirm;
+
+    const checks = [
+        { label: '8+ characters', ok: pass.length >= 8 },
+        { label: 'Uppercase letter', ok: /[A-Z]/.test(pass) },
+        { label: 'Number', ok: /[0-9]/.test(pass) },
+        { label: 'Special character', ok: /[^A-Za-z0-9]/.test(pass) },
+    ];
+
+    if (!showStrength) return null;
+
     return (
-        <div className={`pass-feedback ${match ? "ok" : "err"}`}>
-            {match ? "✓ Passwords match" : "✗ Passwords do not match"}
+        <div style={{ marginTop: -8, marginBottom: 12 }}>
+            {/* Strength bar */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
+                <div style={{ flex: 1, height: 5, borderRadius: 10, background: '#e2e8f0', overflow: 'hidden' }}>
+                    <div style={{
+                        height: '100%',
+                        width: `${(strength.score / 5) * 100}%`,
+                        background: strength.color,
+                        borderRadius: 10,
+                        transition: 'width 0.4s ease, background 0.3s ease'
+                    }} />
+                </div>
+                <span style={{ fontSize: 11, fontWeight: 700, color: strength.color, minWidth: 70, textAlign: 'right' }}>
+                    {strength.label}
+                </span>
+            </div>
+
+            {/* Checklist */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', marginBottom: 6 }}>
+                {checks.map(c => (
+                    <span key={c.label} style={{
+                        fontSize: 10.5, fontWeight: 600,
+                        color: c.ok ? '#059669' : '#94a3b8',
+                        display: 'flex', alignItems: 'center', gap: 4,
+                        transition: 'color 0.2s'
+                    }}>
+                        <span style={{ fontSize: 9 }}>{c.ok ? '✓' : '○'}</span> {c.label}
+                    </span>
+                ))}
+            </div>
+
+            {/* Match feedback */}
+            {showMatch && (
+                <div className={`pass-feedback ${match ? 'ok' : 'err'}`}>
+                    {match ? '✓ Passwords match' : '✗ Passwords do not match'}
+                </div>
+            )}
         </div>
     );
 }
