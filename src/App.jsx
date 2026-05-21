@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Navbar } from './Components/Navbar'
 import { Hero } from './Components/Hero'
@@ -32,9 +32,7 @@ const SignupPage = () => {
 
 const AppContent = () => {
   const location = useLocation()
-  // Hide navbar on login/signup pages
   const hideNavbar = location.pathname === '/login' || location.pathname === '/signup'
-  // Hide footer on login/signup AND service page
   const hideFooter = location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/service'
 
   return (
@@ -43,6 +41,7 @@ const AppContent = () => {
       <ScrollToTop />
       {!hideNavbar && <Navbar />}
       <Routes>
+        <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={
           <>
             <Hero />
