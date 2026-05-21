@@ -455,7 +455,8 @@ nav {
 
 @media (max-width: 400px) {
     .sidebar {
-        width: 100vw;
-        border-left: none;
+        width: 280px;
+        max-width: 85vw;
+        border-left: 1px solid rgba(0, 0, 0, 0.08);
     }
 }
