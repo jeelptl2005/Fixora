@@ -188,51 +188,69 @@ nav {
     color: #FF6B00;
 }
 
-/* ── Overlay ── */
+/* ── Overlay — left side blur ── */
 .sidebar-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.45);
     z-index: 150;
     touch-action: none;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 /* ══════════════════════════
-   SIDEBAR — Desktop
+   SIDEBAR — always right-side panel
 ══════════════════════════ */
 .sidebar {
     position: fixed;
-    top: 70px;
+    top: 0;
     right: 0;
-    height: calc(100vh - 70px);
-    height: calc(100dvh - 70px);
-    width: 280px;
+    height: 100vh;
+    height: 100dvh;
+    width: 300px;
     background: #ffffff;
     z-index: 200;
-    /* KEY: use flex column so btn-group stays pinned at bottom */
     display: flex;
     flex-direction: column;
     border-left: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: -6px 0 28px rgba(0, 0, 0, 0.12);
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.15);
     overflow: hidden;
 }
 
 .sidebar-close-btn {
-    display: none;
+    display: flex;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 205;
+    color: #1a1a1a;
+    font-size: 16px;
 }
 
-/* ── Sidebar Nav List — scrollable, fills remaining space ── */
+.sidebar-close-btn:hover {
+    background: rgba(255, 107, 0, 0.1);
+    color: #FF6B00;
+}
+
+/* ── Sidebar Nav List ── */
 .sidebar ul {
     list-style: none;
-    /* padding inside so items breathe */
-    padding: 16px 10px 0;
+    padding: 70px 10px 0;
     margin: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 4px;
-    /* ✅ flex: 1 + min-height: 0 = scrollable without pushing buttons off */
     flex: 1;
     min-height: 0;
     overflow-y: auto;
@@ -244,7 +262,6 @@ nav {
     transition: background 0.2s;
     list-style: none;
     overflow: hidden;
-    /* ✅ flex-shrink: 0 keeps items from collapsing when list overflows */
     flex-shrink: 0;
 }
 
@@ -299,14 +316,12 @@ nav {
     font-weight: 500;
 }
 
-/* ── Bottom Buttons — pinned, NEVER pushed off screen ── */
+/* ── Bottom Buttons ── */
 .sidebar-btn-group {
-    /* ✅ flex-shrink: 0 ensures buttons are NEVER squeezed or cut off */
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    /* ✅ Safe padding: 16px sides + safe bottom for notched phones */
     padding: 16px 16px calc(env(safe-area-inset-bottom, 0px) + 20px);
     border-top: 1px solid rgba(0, 0, 0, 0.07);
     background: #ffffff;
@@ -362,7 +377,7 @@ nav {
    MEDIA QUERIES
 ════════════════════════════════ */
 
-/* Tablet - sidebar as side panel */
+/* Tablet (769–1024) — hide desktop links, show hamburger */
 @media (min-width: 769px) and (max-width: 1024px) {
 
     .nav-links,
@@ -373,41 +388,15 @@ nav {
     .hamburger {
         display: flex;
     }
-
-    .sidebar {
-        top: 70px;
-        height: calc(100vh - 70px);
-        height: calc(100dvh - 70px);
-        width: 320px;
-    }
-
-    .sidebar-close-btn {
-        display: flex;
-    }
 }
 
 @media (max-width: 1024px) {
-    .nav-links {
-        gap: 2px;
-    }
-
-    .nav-links li {
-        font-size: 14px;
-        padding: 6px 10px;
-    }
-
-    .nav-dark .btn-login,
-    .nav-light .btn-login,
-    .btn-signup {
-        padding: 7px 14px;
-        font-size: 13px;
-    }
-
     .container {
         padding: 0 24px;
     }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
 
     .nav-links,
@@ -432,45 +421,10 @@ nav {
         height: 60px;
     }
 
-    /* ══ MOBILE SIDEBAR — full viewport height, from top ══ */
     .sidebar {
-        top: 0 !important;
-        height: 100vh !important;
-        height: 100dvh !important;
         width: 280px;
     }
 
-    /* Close (×) button visible on mobile */
-    .sidebar-close-btn {
-        display: flex;
-        position: absolute;
-        top: 18px;
-        right: 18px;
-        width: 36px;
-        height: 36px;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.05);
-        cursor: pointer;
-        transition: all 0.2s ease;
-        z-index: 205;
-        color: #1a1a1a;
-        font-size: 16px;
-    }
-
-    .sidebar-close-btn:hover {
-        background: rgba(255, 107, 0, 0.1);
-        color: #FF6B00;
-    }
-
-    /* Extra top padding to clear the close button */
-    .sidebar ul {
-        padding-top: 70px;
-    }
-
-    /* Compact sizing */
     .sidebar-link {
         padding: 11px 12px;
         font-size: 14px;
