@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+
+/* ══════════════════════════
+   NAV BASE
+══════════════════════════ */
+nav {
+    background: transparent;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.nav-flex {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 170px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.85;
+}
+
+/* ── Desktop Nav Links ── */
+.nav-links {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: color 0.25s, background 0.25s;
+    white-space: nowrap;
+}
+
+.nav-dark .nav-links li {
+    color: white;
+}
+
+.nav-dark .nav-links li:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-dark .nav-links .nav-active {
+    color: #FF6B00;
+}
+
+.nav-light .nav-links li {
+    color: #1a1a1a;
+}
+
+.nav-light .nav-links li:hover {
+    background: rgba(255, 107, 0, 0.07);
+    color: #FF6B00;
+}
+
+.nav-light .nav-links .nav-active {
+    color: #FF6B00;
+    background: rgba(255, 107, 0, 0.07);
+}
+
+/* ── Desktop Buttons ── */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-dark .btn-login {
+    background: transparent;
+    color: white;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+    white-space: nowrap;
+}
+
+.nav-dark .btn-login:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-light .btn-login {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+    white-space: nowrap;
+}
+
+.nav-light .btn-login:hover {
+    border-color: #FF6B00;
+    color: #FF6B00;
+    background: rgba(255, 107, 0, 0.05);
+}
+
+.btn-signup {
+    background: #FF6B00;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+    white-space: nowrap;
+}
+
+.btn-signup:hover {
+    background: #E55A00;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.35);
+}
+
+/* ══════════════════════════
+   HAMBURGER
+══════════════════════════ */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    line-height: 1;
+    transition: background 0.2s;
+    position: relative;
+    z-index: 201;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-dark {
+    color: white;
+}
+
+.hamburger-dark:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger-light {
+    color: #1a1a1a;
+}
+
+.hamburger-light:hover {
+    background: rgba(255, 107, 0, 0.07);
+    color: #FF6B00;
+}
+
+/* ── Overlay ── */
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 150;
+    touch-action: none;
+    backdrop-filter: blur(3px);
+}
+
+/* ══════════════════════════
+   SIDEBAR — Desktop
+══════════════════════════ */
+.sidebar {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    height: calc(100vh - 70px);
+    height: calc(100dvh - 70px);
+    width: 280px;
+    background: #ffffff;
+    z-index: 200;
+    /* KEY: use flex column so btn-group stays pinned at bottom */
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: -6px 0 28px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.sidebar-close-btn {
+    display: none;
+}
+
+/* ── Sidebar Nav List — scrollable, fills remaining space ── */
+.sidebar ul {
+    list-style: none;
+    /* padding inside so items breathe */
+    padding: 16px 10px 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* ✅ flex: 1 + min-height: 0 = scrollable without pushing buttons off */
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.sidebar ul li {
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+    list-style: none;
+    overflow: hidden;
+    /* ✅ flex-shrink: 0 keeps items from collapsing when list overflows */
+    flex-shrink: 0;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.sidebar-li-active {
+    background: rgba(255, 107, 0, 0.07);
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 14px;
+    color: #222;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sidebar ul li:hover .sidebar-link,
+.sidebar ul li.sidebar-li-active .sidebar-link {
+    color: #FF6B00;
+}
+
+.sidebar-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #666;
+    flex-shrink: 0;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.sidebar ul li:hover .sidebar-icon,
+.sidebar ul li.sidebar-li-active .sidebar-icon {
+    background: rgba(255, 107, 0, 0.12);
+    border-color: rgba(255, 107, 0, 0.25);
+    color: #FF6B00;
+}
+
+.sidebar-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* ── Bottom Buttons — pinned, NEVER pushed off screen ── */
+.sidebar-btn-group {
+    /* ✅ flex-shrink: 0 ensures buttons are NEVER squeezed or cut off */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* ✅ Safe padding: 16px sides + safe bottom for notched phones */
+    padding: 16px 16px calc(env(safe-area-inset-bottom, 0px) + 20px);
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+    background: #ffffff;
+}
+
+.sidebar-btn-group a {
+    width: 100%;
+    display: block;
+}
+
+.btn-log {
+    width: 100%;
+    background: transparent;
+    color: #1a1a1a;
+    border: 1.5px solid rgba(0, 0, 0, 0.18);
+    padding: 11px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-sizing: border-box;
+}
+
+.btn-log:hover {
+    border-color: #FF6B00;
+    color: #FF6B00;
+    background: rgba(255, 107, 0, 0.04);
+}
+
+.btn-sign {
+    width: 100%;
+    background: #FF6B00;
+    color: white;
+    border: none;
+    padding: 11px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-sizing: border-box;
+}
+
+.btn-sign:hover {
+    background: #E55A00;
+    box-shadow: 0 4px 14px rgba(255, 107, 0, 0.35);
+}
+
+/* ════════════════════════════════
+   MEDIA QUERIES
+════════════════════════════════ */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links li {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .nav-dark .btn-login,
+    .nav-light .btn-login,
+    .btn-signup {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
+
+    .container {
+        padding: 0 24px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .nav-links,
+    .btn-group {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .logo {
+        width: 120px;
+        height: 65px;
+    }
+
+    .nav-flex {
+        height: 60px;
+    }
+
+    /* ══ MOBILE SIDEBAR — full viewport height, from top ══ */
+    .sidebar {
+        top: 0 !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        width: 280px;
+    }
+
+    /* Close (×) button visible on mobile */
+    .sidebar-close-btn {
+        display: flex;
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        width: 36px;
+        height: 36px;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        z-index: 205;
+        color: #1a1a1a;
+        font-size: 16px;
+    }
+
+    .sidebar-close-btn:hover {
+        background: rgba(255, 107, 0, 0.1);
+        color: #FF6B00;
+    }
+
+    /* Extra top padding to clear the close button */
+    .sidebar ul {
+        padding-top: 70px;
+    }
+
+    /* Compact sizing */
+    .sidebar-link {
+        padding: 11px 12px;
+        font-size: 14px;
+        gap: 10px;
+    }
+
+    .sidebar-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+    }
+
+    .sidebar-label {
+        font-size: 14px;
+    }
+
+    .btn-log,
+    .btn-sign {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .sidebar-btn-group {
+        gap: 9px;
+        padding: 14px 16px calc(env(safe-area-inset-bottom, 0px) + 18px);
+    }
+}
+
+@media (max-width: 400px) {
+    .sidebar {
+        width: 100vw;
+        border-left: none;
+    }
+}

@@ -1,0 +1,175 @@
+// ServiceImages.js
+// Sabhi images yahan import hongi
+
+// Existing 8 images
+import electric from '../../assets/electric2.jpg';
+import plumbing from '../../assets/plumbing2.jpg';
+import ac from '../../assets/ac2.jpg';
+import cleaning from '../../assets/cleaning2.jpg';
+import appliance from '../../assets/appliance2.jpg';
+import painting from '../../assets/painting2.jpg';
+import pest from '../../assets/pest2.jpg';
+import cctv from '../../assets/cctv2.jpg';
+
+// ELECTRICAL category
+import fanRepair from '../../assets/fan-repair.jpg';
+import lightSwitch from '../../assets/light-switch.jpg';
+import inverterRepair from '../../assets/inverter.jpg';
+import geyserRepair from '../../assets/geyser.jpg';
+import solarPanel from '../../assets/solar.jpg';
+import smartHomeAuto from '../../assets/smartHome.jpg';
+import shortCircuit from '../../assets/short-circuit.jpg';
+
+// PLUMBING category
+import tapFaucet from '../../assets/tap-faucet.jpg';
+import toiletRepair from '../../assets/toilet-repair.jpg';
+import drainClean from '../../assets/drain-clean.jpg';
+import bathroomFitting from '../../assets/bathroom.jpg';
+import waterTank from '../../assets/water.jpg';
+import pipeline from '../../assets/pipeline.jpg';
+import gasPipe from '../../assets/gas.jpg';
+
+// COOLING category
+import acInstall from '../../assets/ac-install.jpg';
+import acGas from '../../assets/ac-gas.jpg';
+import acDeepClean from '../../assets/ac-deep-clean.jpg';
+import fridgeRepair from '../../assets/fridge.jpg';
+import coolerRepair from '../../assets/cooler-repair.jpg';
+
+// CLEANING category
+import sofaClean from '../../assets/sofa.jpg';
+import bathroomClean from '../../assets/bathroom-clean.jpg';
+import kitchenClean from '../../assets/kitchen.jpg';
+import floorPolish from '../../assets/floor.jpg';
+import windowClean from '../../assets/window-clean.jpg';
+import gardenClean from '../../assets/garden.jpg';
+import waterTankClean from '../../assets/water.jpg';
+import chimneyClean from '../../assets/chimney.jpg';
+import moveClean from '../../assets/move-clean.jpg';
+
+// APPLIANCE category
+import washingMachine from '../../assets/washing.jpg';
+import fridgeRepairApp from '../../assets/fridge.jpg';
+import microwaveRepair from '../../assets/microwave.jpg';
+import tvRepair from '../../assets/tv.jpg';
+import waterPurifierRepair from '../../assets/waterPurifier.jpg';
+import geyserRepairApp from '../../assets/geyser.jpg';
+import chimneyRepair from '../../assets/chimney.jpg';
+import inverterRepairApp from '../../assets/inverter.jpg';
+import vacuumCleaner from '../../assets/vacuum-cleaner.jpg';
+
+// PAINTING category
+import wallpaperInstall from '../../assets/wallpaper.jpg';
+import texturePaint from '../../assets/texture-paint.jpg';
+import waterproofingPaint from '../../assets/waterproofing.jpg';
+import furniturePolish from '../../assets/furniture-polish.jpg';
+import wallCrackRepair from '../../assets/wall-crack.jpg';
+
+// SECURITY category
+import smartLock from '../../assets/smart-lock.jpg';
+import videoDoorbell from '../../assets/video-doorbell.jpg';
+import securityAlarm from '../../assets/security-alarm.jpg';
+import intercom from '../../assets/intercom.jpg';
+
+// PEST CONTROL category
+import cockroach from '../../assets/cockroach.jpg';
+import termite from '../../assets/termite.jpg';
+import bedBug from '../../assets/bed-bug.jpg';
+import mosquito from '../../assets/mosquito.jpg';
+import rodent from '../../assets/rodent.jpg';
+
+// EXTRA category
+import carpentryWork from '../../assets/carpentry.jpg';
+import locksmithService from '../../assets/locksmith.jpg';
+import wifiSetup from '../../assets/wifi.jpg';
+import furnitureAssembly from '../../assets/furniture-assembly.jpg';
+import glassMirror from '../../assets/glass-mirror.jpg';
+
+// Sab images ko export kar do ek object mein
+const Images = {
+  // Existing
+  electric,
+  plumbing,
+  ac,
+  cleaning,
+  appliance,
+  painting,
+  pest,
+  cctv,
+  
+  // Electrical
+  fanRepair,
+  lightSwitch,
+  inverterRepair,
+  geyserRepair,
+  solarPanel,
+  smartHomeAuto,
+  shortCircuit,
+  
+  // Plumbing
+  tapFaucet,
+  toiletRepair,
+  drainClean,
+  bathroomFitting,
+  waterTank,
+  pipeline,
+  gasPipe,
+  
+  // Cooling
+  acInstall,
+  acGas,
+  acDeepClean,
+  fridgeRepair,
+  coolerRepair,
+  
+  // Cleaning
+  sofaClean,
+  bathroomClean,
+  kitchenClean,
+  floorPolish,
+  windowClean,
+  gardenClean,
+  waterTankClean,
+  chimneyClean,
+  moveClean,
+  
+  // Appliance
+  washingMachine,
+  fridgeRepairApp,
+  microwaveRepair,
+  tvRepair,
+  waterPurifierRepair,
+  geyserRepairApp,
+  chimneyRepair,
+  inverterRepairApp,
+  vacuumCleaner,
+  
+  // Painting
+  wallpaperInstall,
+  texturePaint,
+  waterproofingPaint,
+  furniturePolish,
+  wallCrackRepair,
+  
+  // Security
+  smartLock,
+  videoDoorbell,
+  securityAlarm,
+  intercom,
+  
+  // Pest
+  cockroach,
+  termite,
+  bedBug,
+  mosquito,
+  rodent,
+  
+  // Extra
+  carpentryWork,
+  locksmithService,
+  wifiSetup,
+  furnitureAssembly,
+  glassMirror,
+};
+
+export default Images;

@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+
+/* ─── Section ─── */
+.services-section {
+    padding: 80px 0 60px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 107, 0, 0.05) 0%, transparent 60%),
+        #fef9f4;
+    overflow: visible;
+}
+
+/* ─── Header ─── */
+.services-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.services-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #FF6B00;
+    background: rgba(255, 107, 0, 0.08);
+    border: 1px solid rgba(255, 107, 0, 0.18);
+    padding: 4px 14px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+}
+
+.services-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    color: #111;
+    margin: 0;
+    line-height: 1.15;
+}
+
+.services-title__highlight {
+    color: #FF6B00;
+}
+
+.services-sub {
+    font-size: 15px;
+    color: #888;
+    margin: 10px 0 0;
+}
+
+/* ─── Scroll Wrapper ─── */
+.services-wrapper {
+    display: flex;
+    overflow: hidden;
+    width: 92%;
+    margin: 0 auto;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+/* ─── Scroll Track ─── */
+.services {
+    display: flex;
+    gap: 0;
+    animation: scroll 35s linear infinite;
+    flex-shrink: 0;
+    will-change: transform;
+}
+
+.services-wrapper:hover .services {
+    animation-play-state: paused;
+}
+
+/* ─── Individual Card ─── */
+.service {
+    flex-shrink: 0;
+    width: 240px;
+    margin-right: 18px;
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.service:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(255, 107, 0, 0.15);
+}
+
+.services img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: brightness(0.72);
+    transition: filter 0.3s ease;
+}
+
+.service:hover img {
+    filter: brightness(0.85);
+}
+
+/* ─── Caption ─── */
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 14px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, transparent 100%);
+}
+
+.caption h3 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.caption p {
+    color: #ddd;
+    font-size: 11px;
+    margin: 4px 0 0;
+    line-height: 1.4;
+}
+
+/* ─── Keyframe ─── */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* ════════════════════════════════
+   MEDIA QUERIES
+════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .services-section {
+        padding: 60px 0 40px;
+    }
+
+    .services-header {
+        margin-bottom: 32px;
+    }
+
+    .services-wrapper {
+        width: 100%;
+    }
+
+    .service {
+        width: 200px;
+        margin-right: 14px;
+    }
+
+    .services img {
+        height: 240px;
+    }
+
+    .caption h3 {
+        font-size: 13px;
+    }
+
+    .caption p {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-section {
+        padding: 50px 0 30px;
+    }
+
+    .service {
+        width: 170px;
+        margin-right: 12px;
+    }
+
+    .services img {
+        height: 210px;
+    }
+
+    .services {
+        animation-duration: 28s;
+    }
+}
